@@ -1,0 +1,31 @@
+# FlexPythonAPI
+# Setup
+
+Get and build pythonnet from https://github.com/pythonnet/pythonnet.git
+Copy newly built pythonnet runtime files to a new folder you create - such as c:\pythonnet
+    -app.manifest
+    -clr.pyd
+    -nPython.exe
+    -Python.Runtime.dll
+    
+Optionally - add this new folder to your path environment variable
+
+Get the files from the repo into a new folder (We'll call this the source folder)
+
+Copy the following FlexLib dlls to this new source folder
+    -Flex.UiWpfFramework.dll
+    -FlexLib.dll
+    -Util.dll
+    -Vita.dll
+
+Connect your Flex 6000 to your network and turn it on.
+    
+Open a command prompt and issue this command to start the python example code:
+
+    npython Example.py
+    
+    A text window should open and start displaying data data.
+    
+ Close the text window to stop the pytyon example.
+ 
+ -Larry
