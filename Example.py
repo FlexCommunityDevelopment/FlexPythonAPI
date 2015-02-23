@@ -22,9 +22,15 @@ pa = None
 iq = None
 fall = None
 maxPans = None
+
 iqReceived = 0
 panReceived = 0
 fallReceived = 0
+
+daxIQChannel = 1
+panCenterFreq = 7.204
+panAntenna = 'ANT1'
+panBand = '40'
 
 def RadioAdded(radio):
     global rig
@@ -82,18 +88,16 @@ def PanadapterAdded(panadapter, waterfall):
     pa.DataReady += pan_DataReady;
     pa.PropertyChanged += pan_PropertyChanged;
 
-    pa.DAXIQChannel = 1
-    pa.Band = "40"
-    pa.CenterFreq = 7.204   #Randome frequency selected.
-    pa.RXAnt = "ANT1"
+    pa.DAXIQChannel = daxIQChannel
+    pa.Band = panBand
+    pa.CenterFreq = panCenterFreq   #Randome frequency selected.
+    pa.RXAnt = panAntenna
     
     #Size seems to be important as without it, you won't receive any pan or waterfall data ready events.  Makese sense since the waterfall would be zero in size.
     pa.Size = Size(400.0, 100.0)
     pa.RequestPanadapterFromRadio()
     
-    #Randomly choosing DAX IQ 1 - this code was really to help me understand how the API works - it will all need to be refactored if this is supposed to be
-    #a Python FlexLib wrapper.
-    iq = rig.CreateIQStream(1)
+    iq = rig.CreateIQStream(daxIQChannel)
     iq.Pan = pa
     iq.DataReady += iq_DataReady
     iq.RequestIQStreamFromRadio()                
