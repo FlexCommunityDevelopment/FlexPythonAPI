@@ -20,7 +20,7 @@ Copy the following FlexLib dlls to this new source folder
 
 Connect your Flex 6000 to your network and turn it on.
     
-Open a command prompt and issue this command to start the python example code:
+Open a command prompt in this new source folder and issue this command to start the python example code:
 
     npython Example.py
     
