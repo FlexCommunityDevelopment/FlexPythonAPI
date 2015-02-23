@@ -8,7 +8,7 @@ Copy newly built pythonnet runtime files to a new folder you create - such as c:
     -nPython.exe
     -Python.Runtime.dll
     
-Optionally - add this new folder to your path environment variable
+Add this new folder to your path environment variable
 
 Get the files from the repo into a new folder (We'll call this the source folder)
 
