@@ -1,5 +1,5 @@
 # FlexPythonAPI
-Collaboration space for working on a Flex Radio Python API wrapper
+Collaboration space for working on a Flex Radio Python code
 
 *****************************************************************************************
 ***** This space is not managed by or represented by the Flex Radio Systems company *****
