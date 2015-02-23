@@ -15,7 +15,7 @@ I built it on a laptop running Windows 8.1 Pro with the Windows 8.1 SDK installe
 for download on the pythonnet site have an old bug that make it incompatible with PCs running .Net 4.5.  The bug was fixed and checked into
 this git repo so you should have no troble if you get and build it.
 
-I am *very* new to Python coding - have learned a bit while workiong on this code so my apologies for the poor syntax, lack of comments
+I am *very* new to Python coding - have learned a bit while working on this code so my apologies for the poor syntax, lack of comments
 and etc etc.  I am looking for a Python IDE that would make coding in this environment easier - I am spoiled by the Intelisense in
 Visual Studio along with the other coding tools inclding a good Python debugger.  I did my debugging by adding an input statement before
 the Python code runs and then attach Visual Studio debugger but this is good for debugging pyhonnet and not really debugging the python code.
