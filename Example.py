@@ -1,3 +1,8 @@
+# ----------------------------------------
+# ----- Virtually no error handling ------
+# ----- Feel free to improve :) ----------
+# ----------------------------------------
+
 import clr
 import binascii
 import time
