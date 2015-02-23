@@ -69,7 +69,7 @@ def MessageReceived(severity, msg):
     msg_win.add('Message: ' + msg)
 
 def SliceAdded(slice):
-    msg_win.add('Slice added: ' + str(slice.Index))
+    msg_win.add('Slice added Index: %s, Freq: %s' % (str(slice.Index), str(slice.Freq)))
     
 def PanadapterAdded(panadapter, waterfall):
     global pa
