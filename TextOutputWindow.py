@@ -44,17 +44,16 @@ class TextOutputWindow(threading.Thread):
                     pass
             self.root.after(100, self.periodicCall)
 
-    def quit_cb(self):
-        
-        #if self.shutDown != None:
-        print('shutting down now...')
+    def quit_cb(self):        
+        print('shutting down window...')
         while self.queue.qsize():
             try:
                 self.queue.get()
             except Queuy.Empty:
                 pass
                 
-        self.shutDown()
+        if self.shutDown != None:        
+            self.shutDown()
             
         self.root.quit()
 

@@ -151,11 +151,14 @@ def iq_DataReady(stream, data):
 # ----------------------------------------
 
 def Quit():
+    #It seams that if some thread is still hanging around it may cause this excpetion: Fatal Python error: PyImport_GetModuleDict: no module dictionary!
+    #I don't know what to do about it - this code to clean up event handlers maybe helped?
     global pa
     global iq
     global rig
     
-    print('quiting...')
+    print('cleaning up connections...')
+    
     iq.DataReady -= iq_DataReady
     iq.Close()
     iq = None
@@ -171,11 +174,13 @@ def Quit():
     rig.Disconnect()
 
     import sys
+    
+    print('Exit')
     sys.exit(0)
     
 if __name__ == '__main__':
 
-    inval = raw_input('hit enter to start')
+    inval = raw_input('hit enter to start - your chance to attach a debugger!')
     
     msg_win = TextOutputWindow(Quit)
     
