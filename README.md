@@ -16,7 +16,7 @@ and etc etc.  I am looking for a Python IDE that would make coding in this envir
 Visual Studio along with the other coding tools inclding a good Python debugger.  I did my debugging by adding an input statement before
 the Python code runs and then attach Visual Studio debugger but this is good for debugging pyhonnet and not really debugging the python code.
 
-I hope to learn from anyone deciding to join this group.
+I hope to learn from anyone deciding to join this group!
 
 Cheers
 
