@@ -1,6 +1,10 @@
 # FlexPythonAPI
 Collaboration space for working on a Flex Radio Python API wrapper
 
+*****************************************************************************************
+***** This space is not managed by or represented by the Flex Radio Systems company *****
+*****************************************************************************************
+
 This is basically a copy of some Python code from Mark Erbaugh via the Flex Community site.  I've run with it and have added support
 for the radio IQ stream, pan stream, and waterfall stream.  It assumes there are no open pans on the radio - I do not recommend you
 run this Python code while an instance of Smart SDR is running as I'm seeing some confusion of stream IDs when this is done - no doubt
