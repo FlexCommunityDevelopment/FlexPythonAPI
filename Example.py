@@ -4,11 +4,7 @@ import time
 clr.AddReference("FlexLib")
 clr.AddReference("Flex.UiWpfFramework")
 clr.AddReference("System.Reflection")
-from CLR.System import Type
-from Flex.UiWpfFramework.Mvvm import ObservableObject
-from Flex.Smoothlake.FlexLib import IQStream
 from Flex.Smoothlake.FlexLib import API
-from Flex.Smoothlake.FlexLib import Panadapter
 from TextOutputWindow import TextOutputWindow
 from System.Windows import Size
 from System.Reflection import BindingFlags
@@ -56,10 +52,10 @@ def RadioAdded(radio):
         maxPans = 2
   
     msg_win.add('Radio Model: ' + rig.Model)
-    msg_win.add('Max panadapters: ' + str(maxPans))
+    msg_win.add('Max panadapters: %s' % (maxPans))
   
 def RadioRemoved(radio):
-    msg_win.add('Radio Removed: ' + radio.IP.ToString())
+    msg_win.add('Radio Removed: %s' % (radio.IP.ToString()))
 
 # ----------------------------------------
 # ----- Radio Event Handlers -------------
@@ -69,7 +65,7 @@ def MessageReceived(severity, msg):
     msg_win.add('Message: ' + msg)
 
 def SliceAdded(slice):
-    msg_win.add('Slice added Index: %s, Freq: %s' % (str(slice.Index), str(slice.Freq)))
+    msg_win.add('Slice added Index: %s, Freq: %s' % (slice.Index, slice.Freq))
     
 def PanadapterAdded(panadapter, waterfall):
     global pa
@@ -77,7 +73,7 @@ def PanadapterAdded(panadapter, waterfall):
     global iq
     global fall
     
-    msg_win.add('Panadapter added: ' + str(panadapter.StreamID))  
+    msg_win.add('Panadapter added: Stream ID: %s' % (panadapter.StreamID))  
     
     fall = waterfall
     
@@ -107,14 +103,14 @@ def pan_DataReady(panadapter, data):
     
     panReceived += 1
     if panReceived % 100 == 0:  #Print every so often
-        msg_win.add('Pan Stream Id: %s, Count: %s, length: %s' % (panadapter.StreamID, str(panReceived), str(data.Length)))
+        msg_win.add('Pan Stream Id: %s, Count: %s, length: %s' % (panadapter.StreamID, panReceived, data.Length))
 
 def fall_DataReady(waterfall, tile):
     global fallReceived
     
     fallReceived += 1
     if fallReceived % 100 == 0: #Print every so often
-        msg_win.add('Fall Stream Id: %s, Count: %s, TimeCode: %s' % (waterfall.StreamID, fallReceived, str(tile.Timecode)))
+        msg_win.add('Fall Stream Id: %s, Count: %s, TimeCode: %s' % (waterfall.StreamID, fallReceived, tile.Timecode))
         
 def pan_PropertyChanged(sender, event):
     val = sender.GetType().GetProperty(event.PropertyName, BindingFlags.Public | BindingFlags.Instance | BindingFlags.IgnoreCase).GetValue(sender, None);
@@ -137,7 +133,7 @@ def radio_PropertyChanged(radio, event):
         radio.RequestPanafall()  
         
     elif event.PropertyName == 'Nickname':
-        msg_win.add('Radio Name: ' + val)
+        msg_win.add('Radio Name: %s' % (val))
     
 def IQStreamAdded(stream):
     msg_win.add('IQ Stream Added, Stream ID: ' + str(stream.StreamID))
@@ -151,7 +147,7 @@ def iq_DataReady(stream, data):
     
     iqReceived += 1
     if iqReceived % 500 == 0:   #Print every so often
-        msg_win.add('Stream Id: %s, Count: %s, length: %s, BytesPerSecond: %s' % (stream.StreamID, str(iqReceived), str(data.Length), str(stream.BytesPerSecFromRadio)))
+        msg_win.add('Stream Id: %s, Count: %s, length: %s, BytesPerSecond: %s' % (stream.StreamID, iqReceived, data.Length, stream.BytesPerSecFromRadio))
          
 # ----------------------------------------
 # ----- main -----------------------------
