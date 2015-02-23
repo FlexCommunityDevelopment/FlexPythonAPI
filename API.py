@@ -84,11 +84,15 @@ def PanadapterAdded(panadapter, waterfall):
 
     pa.DAXIQChannel = 1
     pa.Band = "40"
-    pa.CenterFreq = 7.204
+    pa.CenterFreq = 7.204   #Randome frequency selected.
     pa.RXAnt = "ANT1"
+    
+    #Size seems to be important as without it, you won't receive any pan or waterfall data ready events.  Makese sense since the waterfall would be zero in size.
     pa.Size = Size(400.0, 100.0)
     pa.RequestPanadapterFromRadio()
     
+    #Randomly choosing DAX IQ 1 - this code was really to help me understand how the API works - it will all need to be refactored if this is supposed to be
+    #a Python FlexLib wrapper.
     iq = rig.CreateIQStream(1)
     iq.Pan = pa
     iq.DataReady += iq_DataReady
@@ -98,14 +102,14 @@ def pan_DataReady(panadapter, data):
     global panReceived
     
     panReceived += 1
-    if panReceived % 100 == 0:
+    if panReceived % 100 == 0:  #Print every so often
         msg_win.add('Pan Stream Id: %s, Count: %s, length: %s' % (panadapter.StreamID, str(panReceived), str(data.Length)))
 
 def fall_DataReady(waterfall, tile):
     global fallReceived
     
     fallReceived += 1
-    if fallReceived % 100 == 0:
+    if fallReceived % 100 == 0: #Print every so often
         msg_win.add('Fall Stream Id: %s, Count: %s, TimeCode: %s' % (waterfall.StreamID, fallReceived, str(tile.Timecode)))
         
 def pan_PropertyChanged(sender, event):
@@ -143,7 +147,7 @@ def iq_DataReady(stream, data):
     global iqReceived
     
     iqReceived += 1
-    if iqReceived % 500 == 0:
+    if iqReceived % 500 == 0:   #Print every so often
         msg_win.add('Stream Id: %s, Count: %s, length: %s, BytesPerSecond: %s' % (stream.StreamID, str(iqReceived), str(data.Length), str(stream.BytesPerSecFromRadio)))
          
 # ----------------------------------------
