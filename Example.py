@@ -129,7 +129,7 @@ def radio_PropertyChanged(radio, event):
         msg_win.add('Connecting...')
         radio.Connect()
     
-    elif event.PropertyName == 'PanadaptersRemaining' and val == maxPans:
+    elif event.PropertyName == 'PanadaptersRemaining' and val == maxPans:   #For this example there may be no existing pans
         msg_win.add('Requesting panfall...')
         radio.RequestPanafall()  
         
