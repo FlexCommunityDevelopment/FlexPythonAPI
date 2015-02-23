@@ -22,5 +22,4 @@ Cheers
 
 Larry
 N7BCP/HB9EYQ
-+41 79 962 24 39
 Basel Switzerland
