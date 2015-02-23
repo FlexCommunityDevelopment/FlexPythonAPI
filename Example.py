@@ -3,6 +3,7 @@
 # ----- Feel free to improve :) ----------
 # ----------------------------------------
 
+import sys
 import clr
 import binascii
 import time
@@ -178,8 +179,6 @@ def Quit():
     rig.PanadapterAdded -= PanadapterAdded
     rig.SliceAdded -= SliceAdded
     rig.Disconnect()
-
-    import sys
     
     print('Exit')
     sys.exit(0)
