@@ -34,7 +34,7 @@ def RadioAdded(radio):
     
     rig = radio
 
-    msg_win.add('Radio Added: ' + radio.IP.ToString())
+    msg_win.add('Radio Added: %s' % (radio.IP.ToString()))
 
     rig.MessageReceived += MessageReceived
     rig.PropertyChanged += radio_PropertyChanged
@@ -51,7 +51,7 @@ def RadioAdded(radio):
     else:
         maxPans = 2
   
-    msg_win.add('Radio Model: ' + rig.Model)
+    msg_win.add('Radio Model: %s' % (rig.Model))
     msg_win.add('Max panadapters: %s' % (maxPans))
   
 def RadioRemoved(radio):
@@ -62,7 +62,7 @@ def RadioRemoved(radio):
 # ----------------------------------------
 
 def MessageReceived(severity, msg):
-    msg_win.add('Message: ' + msg)
+    msg_win.add('Message: %s' % (msg))
 
 def SliceAdded(slice):
     msg_win.add('Slice added Index: %s, Freq: %s' % (slice.Index, slice.Freq))
@@ -75,12 +75,10 @@ def PanadapterAdded(panadapter, waterfall):
     
     msg_win.add('Panadapter added: Stream ID: %s' % (panadapter.StreamID))  
     
+    pa = panadapter;
     fall = waterfall
     
     fall.DataReady += fall_DataReady
-    
-    pa = panadapter;
-
     pa.DataReady += pan_DataReady;
     pa.PropertyChanged += pan_PropertyChanged;
 
