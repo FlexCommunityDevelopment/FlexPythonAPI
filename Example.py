@@ -126,8 +126,7 @@ def radio_PropertyChanged(radio, event):
     #msg_win.add('Change: %s Value: %s Type: %s' % (event.PropertyName,val, type(val).__name__))
         
     if type(val) is unicode:
-        val = '%s' % val
-        val = val.strip(' \t\n\r\0')
+        val = val.strip(' \t\n\r\0')    #Noticed radio Status property value had trailing nulls for some reason - this will clean them up.
     
     if event.PropertyName == 'Status' and val == 'Available':
         msg_win.add('Connecting...')
@@ -141,7 +140,7 @@ def radio_PropertyChanged(radio, event):
         msg_win.add('Radio Name: ' + val)
     
 def IQStreamAdded(stream):
-    msg_win.add('IQ Stream Added')
+    msg_win.add('IQ Stream Added, Stream ID: ' + str(stream.StreamID))
     
 # ----------------------------------------
 # ----- Panadapter Event Handlers --------
