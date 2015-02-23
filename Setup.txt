@@ -24,7 +24,7 @@ Open a command prompt in this new source folder and issue this command to start 
 
     npython Example.py
     
-    A text window should open and start displaying data data.
+    A text window should open and start displaying radio data.
     
  Close the text window to stop the pytyon example.
  
