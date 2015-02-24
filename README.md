@@ -6,7 +6,7 @@ Collaboration space for working on Flex Radio Python code
 *****************************************************************************************
 
 This is basically a copy of some Python code from Mark Erbaugh via the Flex Community site.  I've run with it and have added support
-for the radio IQ stream, pan stream, and waterfall stream.  It assumes there are no open pans on the radio - I do not recommend you
+for the radio IQ stream, pan stream, and waterfall stream.  It assumes there are no pan adapters in use on the radio - I do not recommend you
 run this Python code while an instance of Smart SDR is running as I'm seeing some confusion of stream IDs when this is done - no doubt
 due to my lack of understanding of how the radio supports multiple clients.
 
